@@ -1,0 +1,14 @@
+version: '3'
+services:
+    simple-docker-mysql:
+        container_name: simple-docker-mysql
+        image: mysql
+        environment: 
+            MYSQL_DATABASE: sampledb
+            MYSQL_ROOT_PASSWORD: passworddb
+            MYSQL_ROOT_HOST: '%'
+        ports:
+            - 5005:3306
+        volumes:
+            - ./sql_init:/docker-entrypoint-initdb.d
+        
